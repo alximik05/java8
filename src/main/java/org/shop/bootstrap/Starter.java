@@ -9,7 +9,7 @@ import org.store.api.impl.StoreAPIImpl;
 
 public class Starter {
 	public static void main(String[] args) {
-		StoreAPI storeAPI = new StoreAPIImpl(new BookReaderImpl(), "csv", "input/books.csv");
+		StoreAPI storeAPI = new StoreAPIImpl(new BookReaderImpl(), "csv", "/Users/stas/Desktop/Modern Java sokolov/practice/src/main/resources/input/books.csv");
 		ShopAPI api = new ShopAPIImpl(storeAPI);
 		
 		System.out.println(storeAPI.findBooks());

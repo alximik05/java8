@@ -1,6 +1,7 @@
 package org.shop.model;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Book {
 	private int id;
@@ -78,7 +79,24 @@ public class Book {
 		return "Book [id=" + id + ", name=" + name + ", pages=" + pages + ", author=" + author + ", year=" + year
 				+ ", preview=" + preview + ", publication=" + publication + "]";
 	}
-	
-	
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Book book = (Book) o;
+
+		if (id != book.id) return false;
+		if (pages != book.pages) return false;
+		if (name != null ? !name.equals(book.name) : book.name != null) return false;
+		if (author != null ? !author.equals(book.author) : book.author != null) return false;
+		if (year != null ? !year.equals(book.year) : book.year != null) return false;
+		if (preview != null ? !preview.equals(book.preview) : book.preview != null) return false;
+		return publication != null ? publication.equals(book.publication) : book.publication == null;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, name, pages, author, year, preview, publication);
+	}
 }

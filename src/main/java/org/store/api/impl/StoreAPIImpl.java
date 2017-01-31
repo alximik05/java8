@@ -11,7 +11,7 @@ import org.store.api.book.BookReader;
 import org.store.util.DateUtil;
 
 public class StoreAPIImpl implements StoreAPI {
-	private List<Book> books;
+	private final List<Book> books;
 
 	public StoreAPIImpl(BookReader reader, String source, String path) {
 		if ("csv".equals(source)) {

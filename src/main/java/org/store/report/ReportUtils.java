@@ -1,10 +1,6 @@
 package org.store.report;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import org.shop.model.Book;
 import org.store.api.StoreAPI;
@@ -22,7 +18,7 @@ public class ReportUtils {
 		Map<Integer, List<Book>> map = new HashMap<>();
 		for(Book book : books) {
 			Date publish = book.getPublication();
-			if(publish != null) {
+			if(Objects.nonNull(publish)) {
 				int year = DateUtil.getYear(publish);
 				if(map.containsKey(year)) {
 					List<Book> items = map.get(year);
